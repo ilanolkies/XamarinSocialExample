@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace XamarinSocial
 {
@@ -6,7 +7,14 @@ namespace XamarinSocial
     {
         public MainPage()
         {
-            InitializeComponent();
+			InitializeComponent();
+
+			On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
+
+		void Handle_Clicked(object sender, System.EventArgs e)
+		{
+			DisplayAlert("Keep moving!", "We are going to share everywhere in the next step!", "OK");
+		}
     }
 }
